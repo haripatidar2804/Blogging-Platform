@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background-900: var(--background-900);
+  --color-background-800: var(--background-800);
+  --color-background-700: var(--background-700);
+  --color-background-600: var(--background-600);
+  --color-background-500: var(--background-500);
+  --color-background-400: var(--background-400);
+  --color-background-300: var(--background-300);
+  --color-background-200: var(--background-200);
+  --color-background-100: var(--background-100);
+  --color-foreground: var(--foreground);
+  --color-sub-foreground: var(--sub-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary)
+  ;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+:root {
+  --background-900: #ffffff;
+  --background-800: #f9fafb;
+  --background-700: #f3f4f6;
+  --background-600: #e5e7eb;
+  --background-500: #dfe1e5;
+  --background-400: #d2d6db;
+  --background-300: #c7cdd4;
+  --background-200: #bcc2ca;
+  --background-100: #b3b9c2;
+  --foreground: #171717;
+  --sub-foreground: oklch(0.373 0.034 259.733); /* tailwind gray-700*/
+  --primary-foreground: oklch(0.391 0.09 240.876); /* tailwind sky-900*/
+  --primary: oklch(0.443 0.11 240.79); /* tailwind sky-800 */
+  --primary-hover: oklch(0.5 0.134 242.749);  /* tailwind sky-700 */
+  --secondary: oklch(0.293 0.066 243.157); /* tailwind sky-950 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:has(body.dark) {
+    --background-900: #1e1e1e;
+    --background-800: #232323;
+    --background-700: #252525;
+    --background-600: #272727;
+    --background-500: #2C2C2C;
+    --background-400: #2E2E2E;
+    --background-300: oklch(0.21 0.034 264.665); /* tailwind gray-900*/
+    --background-200: #363636;
+    --background-100: #383838;
+    --foreground: #ededed; 
+    --sub-foreground: oklch(0.707 0.022 261.325); /* tailwind gray-400*/
+    --primary-foreground: oklch(0.588 0.158 241.966); /* tailwind sky-600*/
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background-900);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tiptap h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.tiptap ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.tiptap img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.tiptap pre {
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.tiptap code {
+  font-family: "Courier New", Courier, monospace;
+  color: #f8f8f2;
+}
